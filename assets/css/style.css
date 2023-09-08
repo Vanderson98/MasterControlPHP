@@ -364,10 +364,10 @@ input::-webkit-inner-spin-button {
 }
 
 .tableHead .tableItem:first-child{
-    border-top-left-radius: .5rem !important;
+    border-top-left-radius: .5rem;
 }
 .tableHead  .tableItem:last-child{
-    border-top-right-radius: .5rem !important;
+    border-top-right-radius: .5rem;
 }
 
 .tableBody .tableItem {
@@ -379,11 +379,11 @@ input::-webkit-inner-spin-button {
 }
 
 .tableBody:last-child .tableItem:first-child{
-    border-bottom-left-radius: .5rem !important;
+    border-bottom-left-radius: .5rem;
 }
 
 .tableBody:last-child .tableItem:last-child{
-    border-bottom-right-radius: .5rem !important;
+    border-bottom-right-radius: .5rem;
 }
 
 @media(min-width:1200px){
@@ -445,6 +445,33 @@ input::-webkit-inner-spin-button {
     .loginUser, .loginAdm{
         width: 90%;
         margin: .5rem auto;
+    }
+
+    .tableCustomer, .tableCustomer .tableHead, .tableCustomer .tableBody{
+        display:flex;
+        flex-direction: column !important;
+    }
+
+    .tableCustomer .tableHead{
+        font-size: 1rem;
+    }
+
+    .tableCustomer .tableHead, .tableCustomer .tableBody{
+        border-radius: .1rem;
+        border: 2px solid #4F4F4F;
+    }
+
+    .tableCustomer .tableBody{
+        margin-top: .15rem;
+        font-size: .9rem;
+    }
+
+    .tableCustomer .tableBody:last-child{
+        margin-bottom: 2rem;
+    }
+
+    .tableCustomer .tableBody .tableItem{
+        border-radius: 0 !important;
     }
 }
 
