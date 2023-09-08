@@ -303,7 +303,7 @@ input::-webkit-inner-spin-button {
 
 /* DataBase format */
 .dataCustomer{
-    width: 90%;
+    width: 95%;
     margin: 1rem auto;
 }
 
@@ -315,7 +315,7 @@ input::-webkit-inner-spin-button {
 
 /* BoxSucess animation */
 .boxNoMove{
-    overflow-x: hidden !important;
+    overflow: hidden !important;
 }
 
 .boxSucess{
@@ -326,8 +326,9 @@ input::-webkit-inner-spin-button {
     background-color: 	#228B22;
     text-align: center;
     padding: .87rem 2rem;
-    display: none;
-    transition: top 4s;
+    /* display: none; */
+    visibility: hidden;
+    transition: top 3.5s !important;
     width:13rem;
     text-transform: capitalize;
     border-top-left-radius: .5rem;
@@ -343,6 +344,13 @@ input::-webkit-inner-spin-button {
     top: -200rem;
 }
 
+.boxRegistered{
+    background-color: #800000 !important;
+    font-size: .9rem;
+    padding: 1.05rem 2rem;
+    visibility:hidden;
+}
+
 /* Table Format */
 .tableCustomer, 
 .tableCustomer .tableHead .tableItem, 
@@ -355,6 +363,10 @@ input::-webkit-inner-spin-button {
     width: 100%;
     margin: 10px 0;
     margin-bottom: -1.5rem !important;
+}
+
+.tableCustomer{
+    margin-bottom:  2rem !important;
 }
 
 .tableCustomer .tableHead{
@@ -386,6 +398,28 @@ input::-webkit-inner-spin-button {
     border-bottom-right-radius: .5rem;
 }
 
+.removeClient{
+    width: 100%;
+}
+
+.removeClient button{
+    padding:.7rem .8rem;
+    background-color: #800000;
+    color:#f6f6f6;
+    border: none;
+    width: 100%;
+    letter-spacing: .05rem;
+    font-weight: 600;
+    border-radius: .5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: left 250ms;
+}
+
+.removeClient button:hover{
+    background-color: #550101;
+}
+
 @media(min-width:1200px){
     .boxLogin, 
     .boxRegisterUser{
@@ -399,6 +433,10 @@ input::-webkit-inner-spin-button {
 
     .dataCustomer{
         width: 75%;
+    }
+
+    .removeClient button{
+        width: 70%;
     }
 }
 
@@ -466,12 +504,12 @@ input::-webkit-inner-spin-button {
         font-size: .9rem;
     }
 
-    .tableCustomer .tableBody:last-child{
-        margin-bottom: 2rem;
-    }
-
     .tableCustomer .tableBody .tableItem{
         border-radius: 0 !important;
+    }
+
+    .removeClient button{
+        width: 30%;
     }
 }
 

@@ -2,6 +2,8 @@
     require_once('loginStatus.php');
     require('viewCustomers.php');
     require_once('cop.php');
+
+    $_SESSION['nameCustomersAll'] = [];
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +14,7 @@
     <title>MasterControl - Home</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="boxNoMove">
+<body>
     <header class="menu" style="justify-content: space-between !important; padding-left:1rem; padding-right: 1rem;">
         <a href="logoff.php" class="userLogoff">Sair</a>
         <h2 class="logoMenu" style="margin-right: -15%;">
@@ -82,6 +84,7 @@
                         <th class="tableItem">Organização</th>
                         <th class="tableItem">Email</th>
                         <th class="tableItem">Telefone</th>
+                        <th class="tableItem">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -96,6 +99,11 @@
                         if(count($_SESSION['customersViews']) < 5){
                             continue;
                         }
+
+                        array_push($_SESSION['nameCustomersAll'], [
+                            'nameCustomers' => $_SESSION['customersViews'][1],
+                            'organizationCustomers' => $_SESSION['customersViews'][3]]
+                        );
                 ?>
                 <tr class="tableBody">
                     <td class="tableItem">
@@ -113,6 +121,16 @@
                     <td class="tableItem">
                         <?=$_SESSION['customersViews'][5]?>
                     </td>
+                    <td class="tableItem">
+                        <div class="removeClient">
+                            <form action="test.php">
+                                <button type="submit">
+                                <i class="fa-solid fa-trash"></i>
+                                    Excluir
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                 </tr>
                 <?}?>
                 </tbody>
@@ -124,8 +142,15 @@
         <div class="boxSucess">
             <h3>Cliente registrado com sucesso!</h3>
         </div>
+    <?}else if(isset($_GET) && isset($_GET['customer']) == 'registered'){?>
+        <div class="boxSucess boxRegistered">
+            <h3>Cliente e organização já existe em nosso sistema!</h3>
+        </div>
+
     <?}?>
 
+    <!-- JS FontAwesone -->
+    <script src="https://kit.fontawesome.com/c8eb2ed6f5.js" crossorigin="anonymous"></script>
     <script src="assets/js/index.js"></script>
 </body>
 </html>

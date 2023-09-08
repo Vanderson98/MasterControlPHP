@@ -1,4 +1,6 @@
 <?
+    session_start();
+    
     $dadosCliente = [
         'nomeCliente' => $_POST['customerName'],
         'endereçoCliente' => $_POST['customerAdress'],
@@ -19,8 +21,6 @@
         die();
     }
 
-    session_start();
-
     $dataBaseCustomer = fopen('database.txt', 'a');
     
     // Realize a substituição de '#' por '.' após abrir o arquivo, para evitar problemas de duplicação
@@ -33,6 +33,14 @@
     $textToData = $_SESSION['idPerfil'].'#'.$customerName.'#'.$customerAdress.'#'.$customerOrganization.'#'.$customerEmail.'#'.$customerMobile.PHP_EOL;
 
     // echo $_SESSION['id'];
+    
+    foreach($_SESSION['nameCustomersAll'] as $customersNames){
+        if($customersNames['nameCustomers'] == $_POST['customerName'] && $customersNames['organizationCustomers'] == $_POST['customerOrganization']){
+            header('location: home.php?customer=registered');
+            die();
+        }
+    }
+    
     fwrite($dataBaseCustomer, $textToData); // Escrever os dados no arquivo
     fclose($dataBaseCustomer);
     
