@@ -4,7 +4,7 @@ setTimeout(()=>{
     boxSucess.style.visibility="visible"; // Mostrar o elemento
     setTimeout(()=>{
         boxSucess.classList.add('boxSucessInput'); // Adicionar classe
-        body.classList.add('boxNoMove');
+        body.classList.add('boxNoMove'); // Adicionando class no body
     },500)
 },600)
 

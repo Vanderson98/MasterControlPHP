@@ -123,7 +123,11 @@
                     </td>
                     <td class="tableItem">
                         <div class="removeClient">
-                            <form action="test.php">
+                            <form action="removeRow.php" method="POST">
+                                <!-- Input com valores para excluir -->
+                                <input type="hidden" name="nomeCliente" value="<?=$_SESSION['customersViews'][1]?>">
+                                <input type="hidden" name="organizacaoCliente" value="<?=$_SESSION['customersViews'][3]?>">
+                                
                                 <button type="submit">
                                 <i class="fa-solid fa-trash"></i>
                                     Excluir
@@ -146,7 +150,10 @@
         <div class="boxSucess boxRegistered">
             <h3>Cliente e organização já existe em nosso sistema!</h3>
         </div>
-
+    <?}else if(isset($_GET) && isset($_GET['removeRow']) == 'sucess'){?>
+        <div class="boxSucess boxRegistered">
+            <h3>Cliente removido do sistema!</h3>
+        </div>
     <?}?>
 
     <!-- JS FontAwesone -->
