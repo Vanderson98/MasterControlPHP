@@ -23,10 +23,13 @@
     </style>
 </head>
 <body>
+    <?
+        // Só para não bugar o PHP usando a linguagem HACK
+    ?>
+
     <footer class="rodapeCop">
         <h2>&copy; Vanderson Souza - <span class='ano'></span></h2>
     </footer>
-
     <script>
         let ano = document.querySelector('.ano');
 
