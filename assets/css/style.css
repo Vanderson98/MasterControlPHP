@@ -1,0 +1,453 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Formatação menu */
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252525;
+    color:#f6f6f6;
+    padding: 20px 0;
+}
+
+
+.logoMenu{
+    letter-spacing: .5rem;
+    font-size: 1.8rem;
+    transition: 250ms;
+}
+
+.userNameMenu, .userLogoff, .registerLink, .manterLogadoButton{
+    text-decoration: none;
+    color:#f6f6f6;
+    border: none;
+    transition: 250ms;
+    font-size: 1.2rem;
+}
+
+.nameUserMenu{
+    margin-left: .45rem;
+    text-transform: capitalize;
+    color: #cacaca;
+    letter-spacing: .1rem;
+}
+
+.userLogoff:hover{
+    color: #adadad;
+}
+
+/* Formatação caixa de login */
+.boxLogin,
+.boxRegisterUser,
+.homeBox{
+    width: 85%;
+    background-color: #252525;
+    border: .25rem solid #adadad;
+    border-radius: .5rem;
+    padding: 1rem;
+    color: #f6f6f6;
+    margin: 3rem auto;
+}
+
+
+.titleLogin,
+.registerTitle{
+    font-size: 1.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.usersLoginAutomatic{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-around;
+}
+
+.loginIcon{
+    margin-bottom: .15rem;
+}
+
+.loginUser, .loginAdm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+}
+
+.loginUser, .loginAdm{
+    background-color: #708090;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding:.8rem;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+
+/* Formatação inputs login */
+.formLogin{
+    margin:1rem 0 0 0;
+}
+
+.bars{
+    width: 75%;
+    height: 3px;
+    opacity: 50%;
+    border-radius: 50%;
+    margin: 10px auto;
+    background-color: #adadad;
+}
+
+.nameUser label, 
+.passUser label,
+.customerAdd label{
+    display: flex;
+    flex-direction: column;
+}
+
+.passUser{
+    margin-top: 1.2rem;
+}
+
+.nameUser span,
+.passUser span,
+.customerAdd span{
+    font-size: 1.1rem;
+    margin-bottom: .2rem;
+    font-weight: 500;
+    letter-spacing: .15rem;
+}
+
+.nameUser input,
+.passUser input,
+.customerAdd input{
+    padding: .15rem .3rem;
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    color:#252525;
+    font-weight: 500;
+    border-radius: .2rem;
+    border: none;
+}
+
+.manterLogado{
+    margin-top: 1rem;
+}
+
+.manterLogado span{
+    letter-spacing: .05rem;
+    margin-left: .2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    background-color: #adadad;
+    border-radius: .5rem;
+    position: relative;
+}
+
+
+.buttonLogin{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonLogin button{
+    width: 75%;
+    padding: .3rem 1.8rem;
+    color:#252525;
+    border: none;
+    border-radius: .2rem;
+    cursor: pointer;
+    background-color: #f6f6f6;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: .15rem;
+    font-weight: 600;
+    border: 2px solid #25252500;
+    transition: 250ms;
+}
+
+.buttonLogin button:hover{
+    color:#f6f6f6;
+    background-color: 	#4F4F4F;
+    border: 2px dashed #adadad;
+}
+
+.errorMessage, .sucessMessage{
+    margin-top: 1rem;
+    text-align: center;
+    color:#f6f6f6;
+    font-size: .9rem;
+    letter-spacing: .005rem;
+    padding:10px 0;
+    margin-bottom: -.5rem;
+    border-radius: .2rem;
+    background-color:	#800000;
+}
+
+.errorMessage h3, .sucessMessage h3{
+    font-weight: 500;
+    letter-spacing: .05rem;
+}
+ 
+.sucessMessage{
+    background-color: #228B22;
+}
+
+input:focus, button:focus{
+    outline: none !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+.boxRegister{
+    margin-top: 2rem;
+    text-align: end;
+}
+
+.boxRegister .bars{
+    opacity: 10% !important;
+}
+
+.registerButton{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.titleRegister{
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: .007rem;
+}
+
+.registerLink{
+    background-color: #adadad10;
+    padding: .3rem .7rem;
+    border-radius: .2rem;
+    margin: 0 .7rem;
+}
+
+/* Home format */
+.homeBox{
+    background: rgba(0,0,0,0);
+    color:#252525;
+    border: none;
+    margin: 2rem auto;
+    margin-bottom: -1rem;
+}
+
+.titleHome{
+    display: flex;
+    align-items: center;
+}
+
+.titleHome h2{
+    margin-left: .5rem;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+}
+
+.userIcon{
+    width: 3.5rem; 
+    height: 3.5rem;
+    object-fit: cover;
+}
+
+.customerAdd label{
+    margin-top: .5rem;
+}
+
+.customerAdd span{
+    text-transform: capitalize;
+}
+
+.customerAdd input{
+    border: 2px solid #25252550;
+}
+
+.customerAdd button{
+    margin-top: 1.2rem;
+    background-color: #00BFFF;
+    color:#f6f6f6;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .9rem;
+    border-radius: .5rem;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+    padding:.8rem 1.6rem;
+    transition: 250ms;
+}
+
+.customerAdd button:hover{
+    background-color: #01a3da;
+}
+
+/* DataBase format */
+.dataCustomer{
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.titleCustomer{
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: .15rem;
+}
+
+/* BoxSucess animation */
+.boxNoMove{
+    overflow-x: hidden !important;
+}
+
+.boxSucess{
+    color:#f6f6f6;
+    position: absolute;
+    top: -200rem;
+    right: 0;
+    background-color: 	#228B22;
+    text-align: center;
+    padding: .87rem 2rem;
+    display: none;
+    transition: top 4s;
+    width:13rem;
+    text-transform: capitalize;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+}
+
+.boxSucessInput{
+    top: 0;
+    right: 0;
+}
+
+.boxSucessOut{
+    top: -200rem;
+}
+
+/* Table Format */
+.tableCustomer, 
+.tableCustomer .tableHead .tableItem, 
+.tableCustomer .tableBody .tableItem{
+    padding:.5rem;
+}
+
+.tableCustomer{
+    border-collapse:collapse;
+    width: 100%;
+    margin: 10px 0;
+    margin-bottom: -1.5rem !important;
+}
+
+.tableCustomer .tableHead{
+    color: #f6f6f6;
+    font-size: 1.2rem;
+    background-color: #4F4F4F;
+}
+
+.tableHead .tableItem:first-child{
+    border-top-left-radius: .5rem !important;
+}
+.tableHead  .tableItem:last-child{
+    border-top-right-radius: .5rem !important;
+}
+
+.tableBody .tableItem {
+    text-align: center;
+    background: #636363;
+    color: #f6f6f6;
+    padding: .8rem;
+    font-weight: 600;
+}
+
+.tableBody:last-child .tableItem:first-child{
+    border-bottom-left-radius: .5rem !important;
+}
+
+.tableBody:last-child .tableItem:last-child{
+    border-bottom-right-radius: .5rem !important;
+}
+
+@media(min-width:1200px){
+    .boxLogin, 
+    .boxRegisterUser{
+        width: 30%;
+    }
+
+    .customerAdd{
+        width: 50%;
+        margin: 1rem auto;
+    }
+
+    .dataCustomer{
+        width: 75%;
+    }
+}
+
+@media(min-width:592px){
+    .boxLogin,
+    .boxRegisterUser{
+        width: 380px;
+    }
+}
+
+@media(max-width:992px){
+    .menu{
+        flex-direction: column-reverse;
+    }
+
+    .logoMenu, .userLogoff, .userNameMenu{
+        margin: 10px 0 !important;
+    }
+
+    .userLogoff{
+        margin-bottom: 0 !important;
+    }
+
+    .registerButton{
+        flex-direction: column;
+    }
+
+    .titleRegister{
+        margin-bottom: .5rem;
+    }
+}
+
+@media(max-width:592px){
+    .titleHome h2{
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .usersLoginAutomatic{
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .loginUser, .loginAdm{
+        width: 90%;
+        margin: .5rem auto;
+    }
+}
+
+.registerLink:hover{
+    background-color: #adadad20;
+}
