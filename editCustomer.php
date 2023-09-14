@@ -14,7 +14,7 @@
 
     foreach($dadosAtualizados as $dado){ // Ver se existe algum dado que não tenha nada escrito
         if(strlen($dado) == 0){
-            die(header('location: editRow.php?data=empty')); // Voltar para o edit
+            die(header('location: home.php?data=empty')); // Voltar para o edit
         }
     }
     

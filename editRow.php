@@ -49,12 +49,6 @@
         </section>
     </main>
 
-    <?if(isset($_GET) && isset($_GET['data']) == 'empty'){?>
-        <div class="boxSucess boxErrorEdit">
-            <h3>Forneça os dados corretamente para alterar o sistema!</h3>
-        </div>
-    <?}?>
-
     <!-- FontAwesone JS -->
     <script src="https://kit.fontawesome.com/c8eb2ed6f5.js" crossorigin="anonymous"></script>
 

@@ -144,6 +144,10 @@
         <div class="boxSucess boxEditedError">
             <h3>Cliente não editado no sistema!</h3>
         </div>
+    <?}else if(isset($_GET) && isset($_GET['data']) == 'empty'){?>
+        <div class="boxSucess boxErrorEdit">
+            <h3>Forneça os dados corretamente para alterar o sistema!</h3>
+        </div>
     <?}?>
 
     <!-- JS FontAwesone -->
