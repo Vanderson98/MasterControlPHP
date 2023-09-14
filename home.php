@@ -1,6 +1,7 @@
 <?
     require_once('loginStatus.php');
     require('viewCustomers.php');
+    include('removeLines.php'); 
     require_once('cop.php');
 
     $_SESSION['nameCustomersAll'] = [];
@@ -26,50 +27,10 @@
     <main>
         <section class="homeBox">
             <form action="registerCustomer.php" method="post">
-                <div class="titleHome">
-                    <img src="assets/img/userImg.png" alt="User icon" class="userIcon">
-                    <h2>Customer management system</h2>
-                </div>
-                <div class="bars"></div>
-
-                <div class="addCustomer customerAdd">
-                    <label for="customerName">
-                        <span>Nome do cliente:</span>
-                        <input type="text" name="customerName" id="customerName">
-                    </label>
-
-                    <label for="customerAdress">
-                        <span>Endereço:</span>
-                        <input type="text" name="customerAdress" id="customerAdress">
-                    </label>
-
-                    <label for="customerOrganization">
-                        <span>Organização:</span>
-                        <input type="text" name="customerOrganization" id="customerOrganization">
-                    </label>
-
-                    <label for="customerEmail">
-                        <span>Email:</span>
-                        <input type="email" name="customerEmail" id="customerEmail">
-                    </label>
-
-                    <label for="customerMobile">
-                        <span>Telefone:</span>
-                        <input type="number" name="customerMobile" id="customerMobile">
-                    </label>
-                </div> 
-
-                <?if(isset($_GET) && isset($_GET['error']) == 'dadosEmpty'){?>
-                    <div class="customerAdd errorMessage">
-                        <h3>Insira os dados corretamente e <br>tente novamente!</h3>
-                    </div>
-                <?}else if(isset($_GET) && isset($_GET['number']) == 'error'){?>
-                    <div class="customerAdd errorMessage">
-                        <h3>Número de telefone incorreto, <br>tente novamente!</h3>
-                    </div>
-                <?}?>
+                <?require_once('form.php');?>
+                
                 <div class="customerAdd">
-                    <button type="submit">Adicionar registro</button>
+                    <button type="submit">Adicionar cliente</button>
                 </div>
             </form>
         </section>
@@ -102,8 +63,9 @@
 
                         array_push($_SESSION['nameCustomersAll'], [
                             'nameCustomers' => $_SESSION['customersViews'][1],
-                            'organizationCustomers' => $_SESSION['customersViews'][3]]
-                        );
+                            'organizationCustomers' => $_SESSION['customersViews'][3],
+                            'adressCustomers' => $_SESSION['customersViews'][2]]
+                        );  // Ver se ja tem algum cliente cadastrado no sistema com nome e organização igual
                 ?>
                 <tr class="tableBody">
                     <td class="tableItem">
@@ -119,7 +81,12 @@
                         <?=$_SESSION['customersViews'][4]?>
                     </td>
                     <td class="tableItem">
-                        <?=$_SESSION['customersViews'][5]?>
+                        <?
+                            $telefone = $_SESSION['customersViews'][5];
+                            $telefone = preg_replace("/[^0-9]/", "", $telefone); // Remover caracteres não numéricos
+                            $telefone = "(" . substr($telefone, 0, 2) . ") " . substr($telefone, 2, 5) . "-" . substr($telefone, 7); // Formatar numero para aparecer em formato brasileiro
+                            echo $telefone;
+                        ?>
                     </td>
                     <td class="tableItem">
                         <div class="removeClient">
@@ -128,9 +95,24 @@
                                 <input type="hidden" name="nomeCliente" value="<?=$_SESSION['customersViews'][1]?>">
                                 <input type="hidden" name="organizacaoCliente" value="<?=$_SESSION['customersViews'][3]?>">
                                 
-                                <button type="submit">
-                                <i class="fa-solid fa-trash"></i>
+                                <button type="submit" class="removeButton">
+                                    <i class="fa-solid fa-trash"></i>
                                     Excluir
+                                </button>
+                            </form>
+
+                            <form action="editRow.php" method="post">
+                                <!-- Input com valor para editar -->
+                                <input type="hidden" name="idCliente" value="<?=$_SESSION['customersViews'][0]?>">
+                                <input type="hidden" name="nomeCliente" value="<?=$_SESSION['customersViews'][1]?>">    
+                                <input type="hidden" name="enderecoCliente" value="<?=$_SESSION['customersViews'][2]?>">
+                                <input type="hidden" name="organizacaoCliente" value="<?=$_SESSION['customersViews'][3]?>">
+                                <input type="hidden" name="emailCliente" value="<?=$_SESSION['customersViews'][4]?>">
+                                <input type="hidden" name="telefoneCliente" value="<?=intval($_SESSION['customersViews'][5])?>">  
+
+                                <button type="submit" class="editButton">
+                                    <i class="fa-solid fa-file-pen"></i>
+                                    Editar
                                 </button>
                             </form>
                         </div>
@@ -154,10 +136,19 @@
         <div class="boxSucess boxRegistered">
             <h3>Cliente removido do sistema!</h3>
         </div>
+    <?}else if(isset($_GET) && isset($_GET['edit']) == 'sucess'){?>
+        <div class="boxSucess boxEditedSucess">
+            <h3>Cliente editado no sistema!</h3>
+        </div>
+    <?}else if(isset($_GET) && isset($_GET['editC']) == 'error'){?>
+        <div class="boxSucess boxEditedError">
+            <h3>Cliente não editado no sistema!</h3>
+        </div>
     <?}?>
 
     <!-- JS FontAwesone -->
     <script src="https://kit.fontawesome.com/c8eb2ed6f5.js" crossorigin="anonymous"></script>
+    
     <script src="assets/js/index.js"></script>
 </body>
 </html>

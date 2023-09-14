@@ -93,7 +93,7 @@
     <script>
         $(document).ready(function(){
             $('.loginUser').click(function(){
-                $('#nameUser').val('testClient'); // Colocar valor Versus no nome
+                $('#nameUser').val('testClient'); // Colocar valor testClient no nome
                 $('#passUser').val('123'); // Colocar valor 123 na senha
             })
 

@@ -34,7 +34,7 @@
 
     // echo $_SESSION['id'];
     
-    foreach($_SESSION['nameCustomersAll'] as $customersNames){
+    foreach($_SESSION['nameCustomersAll'] as $customersNames){ // Ver se ja tem algum cliente cadastrado no sistema com nome e organização igual
         if($customersNames['nameCustomers'] == $_POST['customerName'] && $customersNames['organizationCustomers'] == $_POST['customerOrganization']){
             header('location: home.php?customer=registered');
             die();

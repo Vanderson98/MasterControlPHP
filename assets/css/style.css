@@ -36,6 +36,11 @@
     letter-spacing: .1rem;
 }
 
+.userLogoff{
+    letter-spacing: .1rem;
+    font-weight: 600;
+}
+
 .userLogoff:hover{
     color: #adadad;
 }
@@ -43,7 +48,8 @@
 /* Formatação caixa de login */
 .boxLogin,
 .boxRegisterUser,
-.homeBox{
+.homeBox,
+.boxEdit{
     width: 85%;
     background-color: #252525;
     border: .25rem solid #adadad;
@@ -245,7 +251,8 @@ input::-webkit-inner-spin-button {
 }
 
 /* Home format */
-.homeBox{
+.homeBox,
+.boxEdit{
     background: rgba(0,0,0,0);
     color:#252525;
     border: none;
@@ -282,8 +289,8 @@ input::-webkit-inner-spin-button {
     border: 2px solid #25252550;
 }
 
-.customerAdd button{
-    margin-top: 1.2rem;
+.customerAdd button, .backHome{
+    margin-top: .9rem;
     background-color: #00BFFF;
     color:#f6f6f6;
     border: none;
@@ -293,6 +300,7 @@ input::-webkit-inner-spin-button {
     border-radius: .5rem;
     text-transform: capitalize;
     letter-spacing: .1rem;
+    font-size: 1rem;
     padding:.8rem 1.6rem;
     transition: 250ms;
 }
@@ -344,7 +352,8 @@ input::-webkit-inner-spin-button {
     top: -200rem;
 }
 
-.boxRegistered{
+.boxRegistered,
+.boxEdited{
     background-color: #800000 !important;
     font-size: .9rem;
     padding: 1.05rem 2rem;
@@ -399,26 +408,93 @@ input::-webkit-inner-spin-button {
 }
 
 .removeClient{
-    width: 100%;
+    display:flex;
+    justify-content: space-around;
 }
 
 .removeClient button{
-    padding:.7rem .8rem;
-    background-color: #800000;
+    padding:.7rem 1.2rem;
     color:#f6f6f6;
     border: none;
     width: 100%;
     letter-spacing: .05rem;
     font-weight: 600;
+    margin: 0 .1rem;
     border-radius: .5rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
     transition: left 250ms;
 }
 
-.removeClient button:hover{
+.removeClient i{
+    margin-bottom: .05rem;
+}
+
+.removeClient .removeButton{
+    background-color: #800000;
+}
+
+.removeClient .removeButton:hover{
     background-color: #550101;
 }
+
+.removeClient .editButton{
+    background-color: #ff9100;
+}
+
+.removeClient .editButton:hover{
+    background-color: #c07410;
+}
+
+/* Format Edit  */
+
+.titleEditBox{
+    display: flex;
+    align-items: center;
+}
+
+.titleEdit{
+    text-align: center;
+    font-size: 1.6rem;
+    margin-left: .1rem;
+    letter-spacing: .05rem;
+    text-transform: capitalize;
+}
+
+.editButtons{
+    display:flex;
+    justify-content: space-around;
+}
+
+.backHome{
+    text-decoration: none;
+    margin-right: 1rem;
+    background-color: #800000;
+}
+
+.boxEdit .editButton{
+    background-color: #228B22;
+}
+
+.boxEdit .editButton:hover{
+    background-color: 	#006400;
+}
+
+.boxErrorEdit, .boxEditedError{
+    background-color: #800000;
+}
+
+.boxErrorEdit{   
+    padding: .4rem .8rem;
+    font-size: .9rem;
+}
+
+.boxEdited, .boxEditedSucess{
+    background-color: #228B22;
+}
+
 
 @media(min-width:1200px){
     .boxLogin, 
@@ -437,6 +513,10 @@ input::-webkit-inner-spin-button {
 
     .removeClient button{
         width: 70%;
+    }
+    
+    .tableBody:last-child .tableItem:last-child, .tableHead .tableItem:last-child{
+        width: 15%;
     }
 }
 
@@ -465,6 +545,14 @@ input::-webkit-inner-spin-button {
     }
 
     .titleRegister{
+        margin-bottom: .5rem;
+    }
+
+    .removeClient{
+        flex-direction: column;
+    }
+
+    .removeClient .removeButton{
         margin-bottom: .5rem;
     }
 }
@@ -508,8 +596,10 @@ input::-webkit-inner-spin-button {
         border-radius: 0 !important;
     }
 
-    .removeClient button{
-        width: 30%;
+    .removeClient{
+        width: 40%;
+        margin: 0 auto;
+        font-size: 1.2rem;
     }
 }
 
